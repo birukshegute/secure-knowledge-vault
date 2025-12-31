@@ -5,7 +5,7 @@ from .models import Note
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at")
-    list_display = ("id", "title", "owner", "is_encrypted", "created_at", "updated_at")
+    list_display = ("id", "title", "is_encrypted", "created_at", "updated_at")
     list_filter = ("is_encrypted", "created_at")
     search_fields = ("title", "content")
     def get_queryset(self, request):
@@ -16,6 +16,8 @@ class NoteAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not change:
             obj.owner = request.user
+        else:
+            obj.owner = obj.owner
         super().save_model(request, obj, form, change)
     class Meta:
         permissions = [
