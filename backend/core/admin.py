@@ -21,3 +21,7 @@ class NoteAdmin(admin.ModelAdmin):
         permissions = [
             ("can_view_encrypted_note", "Can view encrypted note content"),
         ]
+        def get_display_content(self, user):
+            if self.is_encrypted:
+                return "[ENCRYPTED]"
+            return self.content
