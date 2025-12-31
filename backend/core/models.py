@@ -18,7 +18,7 @@ class Note(models.Model):
         return self.title
     
     def get_display_content(self, user):
-            if self.is_encrypted:
+            if self.is_encrypted and not user.has_perm("core.can_view_encrypted_note"):
                 return "[ENCRYPTED]"
             return self.content
     
