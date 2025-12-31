@@ -16,3 +16,13 @@ class Note(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def get_display_content(self, user):
+            if self.is_encrypted:
+                return "[ENCRYPTED]"
+            return self.content
+    
+    class Meta:
+        permissions = [
+            ("can_view_encrypted_note", "Can view encrypted note content"),
+        ]
