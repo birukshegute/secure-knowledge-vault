@@ -17,3 +17,7 @@ class NoteAdmin(admin.ModelAdmin):
         if not change:
             obj.owner = request.user
         super().save_model(request, obj, form, change)
+    class Meta:
+        permissions = [
+            ("can_view_encrypted_note", "Can view encrypted note content"),
+        ]
