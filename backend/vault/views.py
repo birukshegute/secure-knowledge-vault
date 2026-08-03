@@ -19,7 +19,7 @@ def create_note(request):
 
             note.save()
 
-            return redirect("dashboard")
+            return redirect("home")
 
     else:
         form = NoteForm()
@@ -30,7 +30,7 @@ def create_note(request):
         {"form": form},
     )
 @login_required
-def dashboard(request):
+def home(request):
 
     notes = Note.objects.filter(
         owner=request.user
@@ -38,7 +38,7 @@ def dashboard(request):
 
     return render(
         request,
-        "vault/dashboard.html",
+        "vault/homepage.html",
         {
             "notes": notes
         }
