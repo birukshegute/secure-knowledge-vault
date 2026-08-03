@@ -18,7 +18,7 @@ def create_note(request):
 
             note.save()
 
-            return redirect("dashboard")
+            return redirect("create_note")
 
     else:
         form = NoteForm()
