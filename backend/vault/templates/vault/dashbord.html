@@ -1,0 +1,17 @@
+<h1>Secure Knowledge Vault</h1>
+
+<h2>My Notes</h2>
+
+<ul>
+  {% for note in notes %}
+
+  <li>{{ note.title }}</li>
+
+  {% empty %}
+
+  <li>No notes yet.</li>
+
+  {% endfor %}
+</ul>
+
+<a href="{% url 'create_note' %}"> Create Note </a>
