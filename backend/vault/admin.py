@@ -17,6 +17,4 @@ class NoteAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not change:
             obj.owner = request.user
-        else:
-            obj.owner = obj.owner
         super().save_model(request, obj, form, change)
