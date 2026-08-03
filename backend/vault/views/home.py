@@ -11,7 +11,7 @@ def home(request):
 
     return render(
         request,
-        "vault/homepage.html",
+        "vault/home.html",
         {
             "notes": notes
         }

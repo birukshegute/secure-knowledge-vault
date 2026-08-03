@@ -24,6 +24,6 @@ def create_note(request):
 
     return render(
         request,
-        "vault/create_note.html",
+        "vault/notes/create.html",
         {"form": form},
     )
