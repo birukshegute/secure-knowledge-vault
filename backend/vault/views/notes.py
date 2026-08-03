@@ -1,8 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import NoteForm
-from .models import Note
-
+from ..forms import NoteForm
 
 
 @login_required
@@ -28,18 +26,4 @@ def create_note(request):
         request,
         "vault/create_note.html",
         {"form": form},
-    )
-@login_required
-def home(request):
-
-    notes = Note.objects.filter(
-        owner=request.user
-    ).order_by("-updated_at")
-
-    return render(
-        request,
-        "vault/homepage.html",
-        {
-            "notes": notes
-        }
     )
