@@ -1,2 +1,2 @@
 from .home import home
-from .notes import create_note
+from .notes import create_note, view_note, edit_note, delete_note
