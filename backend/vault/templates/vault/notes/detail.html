@@ -1,3 +1,6 @@
+{% extends "vault/base.html" %} {% block title %} Home | Secure Knowledge Vault
+{%endblock %} {% block content %}
+
 <h1>{{ note.title }}</h1>
 
 <p>Created: {{ note.created_at }}</p>
@@ -9,4 +12,5 @@
 
 <a href="{% url 'edit_note' note.id %}">Edit Note</a>
 <a href="{% url 'delete_note' note.id %}">Delete Note</a> <br />
-<a href="{% url 'home' %}">Back to Home</a>
+
+{% endblock %}

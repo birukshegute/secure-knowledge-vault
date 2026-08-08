@@ -1,4 +1,7 @@
-<h1>Secure Knowledge Vault</h1>
+{% extends "vault/base.html" %} {% block title %} Home | Secure Knowledge Vault
+{%endblock %} {% block content %}
+
+<h1>Welcome to Secure Knowledge Vault</h1>
 
 <h2>My Notes</h2>
 
@@ -15,3 +18,5 @@
 </ul>
 
 <a href="{% url 'create_note' %}"> Create Note </a>
+
+{% endblock %}
